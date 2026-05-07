@@ -6,24 +6,439 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alessandro Punella</title>
-
-<link rel="stylesheet" href="style.css">
+<title>Alessandro Ruben Punella</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.background{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-10;
+overflow:hidden;
+}
+
+.blur{
+position:absolute;
+border-radius:50%;
+filter:blur(140px);
+opacity:0.45;
+animation:float 10s infinite alternate;
+}
+
+.blur1{
+width:500px;
+height:500px;
+background:#3b82f6;
+top:-200px;
+left:-200px;
+}
+
+.blur2{
+width:500px;
+height:500px;
+background:#8b5cf6;
+bottom:-200px;
+right:-200px;
+}
+
+@keyframes float{
+
+from{
+transform:translate(0px,0px);
+}
+
+to{
+transform:translate(80px,50px);
+}
+
+}
+
+/* NAVBAR */
+
+header{
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+padding:20px 0;
+}
+
+.navbar{
+width:90%;
+max-width:1300px;
+margin:auto;
+padding:18px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:24px;
+}
+
+.logo{
+font-size:22px;
+font-weight:700;
+letter-spacing:2px;
+}
+
+.nav-links{
+display:flex;
+list-style:none;
+gap:35px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:500;
+opacity:0.8;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+opacity:1;
+color:#60a5fa;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:0 10%;
+gap:80px;
+}
+
+.hero-left{
+flex:1;
+}
+
+.hero-tag{
+color:#60a5fa;
+font-size:13px;
+letter-spacing:4px;
+margin-bottom:25px;
+}
+
+.hero h1{
+font-size:90px;
+line-height:0.95;
+font-weight:800;
+margin-bottom:35px;
+}
+
+.hero-description{
+font-size:22px;
+line-height:1.8;
+color:#cbd5e1;
+max-width:650px;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+margin-top:45px;
+}
+
+.primary-button,
+.secondary-button{
+padding:16px 28px;
+border-radius:16px;
+text-decoration:none;
+font-weight:600;
+transition:0.4s;
+}
+
+.primary-button{
+background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+color:white;
+box-shadow:0 0 30px rgba(59,130,246,0.4);
+}
+
+.primary-button:hover{
+transform:translateY(-5px);
+box-shadow:0 0 60px rgba(59,130,246,0.7);
+}
+
+.secondary-button{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+color:white;
+}
+
+.secondary-button:hover{
+transform:translateY(-5px);
+background:rgba(255,255,255,0.08);
+}
+
+/* HERO CARD */
+
+.hero-right{
+flex:1;
+display:flex;
+justify-content:center;
+}
+
+.hero-card{
+width:420px;
+height:520px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(25px);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:36px;
+position:relative;
+overflow:hidden;
+
+box-shadow:
+0 0 60px rgba(59,130,246,0.15),
+0 0 120px rgba(139,92,246,0.08);
+
+animation:floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.circle{
+position:absolute;
+width:240px;
+height:240px;
+background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+border-radius:50%;
+top:-80px;
+right:-80px;
+opacity:0.35;
+filter:blur(25px);
+}
+
+.hero-card-content{
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:25px;
+color:#94a3b8;
+}
+
+.hero-card-content i{
+font-size:90px;
+}
+
+/* SECTION */
+
+.section{
+padding:140px 10%;
+}
+
+.section-title{
+margin-bottom:60px;
+}
+
+.section-title p{
+color:#60a5fa;
+font-size:13px;
+letter-spacing:4px;
+margin-bottom:15px;
+}
+
+.section-title h2{
+font-size:64px;
+line-height:1;
+font-weight:800;
+}
+
+.about-card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:32px;
+padding:45px;
+max-width:1000px;
+font-size:20px;
+line-height:2;
+color:#dbe4ee;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+/* CARDS */
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:28px;
+padding:40px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 50px rgba(59,130,246,0.15);
+}
+
+.card i{
+font-size:60px;
+margin-bottom:25px;
+color:#60a5fa;
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:20px;
+}
+
+.card p{
+font-size:18px;
+line-height:1.8;
+color:#dbe4ee;
+}
+
+/* CONTACT */
+
+.contacts{
+display:flex;
+gap:25px;
+margin-top:30px;
+flex-wrap:wrap;
+}
+
+.contacts a{
+width:90px;
+height:90px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+border-radius:24px;
+display:flex;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+color:white;
+font-size:35px;
+transition:0.4s;
+}
+
+.contacts a:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 50px rgba(59,130,246,0.2);
+}
+
+/* FOOTER */
+
+footer{
+padding:50px;
+text-align:center;
+color:#94a3b8;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding-top:180px;
+}
+
+.hero h1{
+font-size:58px;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+
+.navbar{
+flex-direction:column;
+gap:20px;
+}
+
+.nav-links{
+justify-content:center;
+gap:20px;
+}
+
+.hero-card{
+width:320px;
+height:420px;
+}
+
+.section-title h2{
+font-size:42px;
+}
+
+.contacts{
+justify-content:center;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<div class="background-blur blur1"></div>
-<div class="background-blur blur2"></div>
+<div class="background">
+
+<div class="blur blur1"></div>
+<div class="blur blur2"></div>
+
+</div>
 
 <header>
 
@@ -38,7 +453,9 @@ AP
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#school">School</a></li>
+<li><a href="#picerno">Picerno</a></li>
 <li><a href="#contact">Contact</a></li>
 
 </ul>
@@ -49,7 +466,7 @@ AP
 
 <section class="hero" id="home">
 
-<div class="hero-content">
+<div class="hero-left">
 
 <p class="hero-tag">
 PORTFOLIO 2026
@@ -66,7 +483,7 @@ Ruben Punella
 
 Studente di Informatica e Telecomunicazioni.
 Appassionato di sviluppo software,
-AI e tecnologie web moderne.
+AI, cybersecurity e tecnologie web moderne.
 
 </p>
 
@@ -84,13 +501,13 @@ Contatti
 
 </div>
 
-<div class="hero-visual">
+<div class="hero-right">
 
-<div class="glass-panel">
+<div class="hero-card">
 
-<div class="floating-circle"></div>
+<div class="circle"></div>
 
-<div class="image-placeholder">
+<div class="hero-card-content">
 
 <i class="fa-solid fa-user"></i>
 
@@ -107,31 +524,41 @@ LA TUA FOTO
 
 </section>
 
-<section class="info-section" id="about">
+<section class="section" id="about">
 
-<div class="section-header">
+<div class="section-title">
 
 <p>
 CHI SONO
 </p>
 
 <h2>
+
 Minimal.<br>
 Modern.<br>
 Future.
+
 </h2>
 
 </div>
 
-<div class="info-card">
+<div class="about-card">
 
 <p>
 
 Mi chiamo Alessandro Ruben Punella e frequento
 l’indirizzo Informatica e Telecomunicazioni.
 
-Questo sito è una versione moderna del mio portfolio personale,
-con competenze, progetti, certificazioni e interessi tecnologici.
+Sono interessato allo sviluppo software,
+all’intelligenza artificiale,
+alla cybersecurity e alle tecnologie web moderne.
+
+Nel tempo ho sviluppato competenze
+attraverso scuola, certificazioni,
+progetti personali ed esperienze pratiche.
+
+Questo sito rappresenta una versione moderna
+del mio portfolio personale.
 
 </p>
 
@@ -139,124 +566,203 @@ con competenze, progetti, certificazioni e interessi tecnologici.
 
 </section>
 
-<section class="info-section" id="skills">
+<section class="section" id="skills">
 
-<div class="section-header">
+<div class="section-title">
 
 <p>
 COMPETENZE
 </p>
 
 <h2>
+
 Tecnologie<br>
 e linguaggi
+
 </h2>
 
 </div>
 
-<div class="skills-container">
+<div class="grid">
 
-<div class="skill-card">
+<div class="card">
 <i class="fa-brands fa-html5"></i>
-<span>HTML</span>
+<h3>HTML</h3>
+<p>Sviluppo di pagine web moderne e responsive.</p>
 </div>
 
-<div class="skill-card">
+<div class="card">
 <i class="fa-brands fa-css3-alt"></i>
-<span>CSS</span>
+<h3>CSS</h3>
+<p>Design moderno, animazioni ed effetti grafici.</p>
 </div>
 
-<div class="skill-card">
+<div class="card">
 <i class="fa-brands fa-js"></i>
-<span>JavaScript</span>
+<h3>JavaScript</h3>
+<p>Interazioni dinamiche e funzionalità avanzate.</p>
 </div>
 
-<div class="skill-card">
+<div class="card">
 <i class="fa-brands fa-python"></i>
-<span>Python</span>
+<h3>Python</h3>
+<p>Programmazione, scripting e automazione.</p>
 </div>
 
-<div class="skill-card">
+<div class="card">
 <i class="fa-brands fa-java"></i>
-<span>Java</span>
+<h3>Java</h3>
+<p>Applicazioni software e programmazione OOP.</p>
 </div>
 
-<div class="skill-card">
+<div class="card">
 <i class="fa-solid fa-database"></i>
-<span>SQL</span>
+<h3>SQL</h3>
+<p>Database relazionali e gestione dati.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="info-section" id="projects">
+<section class="section" id="certifications">
 
-<div class="section-header">
+<div class="section-title">
 
 <p>
-PROGETTI
+CERTIFICAZIONI
 </p>
 
 <h2>
-Esperienze<br>
-e lavori
+
+Formazione<br>
+e corsi
+
 </h2>
 
 </div>
 
-<div class="projects-grid">
+<div class="grid">
 
-<div class="project-card">
-
-<h3>
-Portfolio Website
-</h3>
-
+<div class="card">
+<i class="fa-solid fa-computer"></i>
+<h3>Cisco IT Essentials</h3>
 <p>
-Sito portfolio personale moderno.
+Competenze hardware, software,
+assemblaggio e manutenzione dei computer.
 </p>
-
 </div>
 
-<div class="project-card">
-
-<h3>
-PCTO Experience
-</h3>
-
+<div class="card">
+<i class="fa-solid fa-shield-halved"></i>
+<h3>Cybersecurity Essentials</h3>
 <p>
-Gestione inventario e hardware.
+Fondamenti di sicurezza informatica
+e protezione dei dati.
 </p>
-
 </div>
 
-<div class="project-card">
-
-<h3>
-Cisco Certifications
-</h3>
-
+<div class="card">
+<i class="fa-solid fa-robot"></i>
+<h3>AI Fundamentals</h3>
 <p>
-Cybersecurity e AI.
+Introduzione all’intelligenza artificiale
+e machine learning.
 </p>
-
 </div>
 
 </div>
 
 </section>
 
-<section class="info-section" id="contact">
+<section class="section" id="school">
 
-<div class="section-header">
+<div class="section-title">
+
+<p>
+SCUOLA
+</p>
+
+<h2>
+
+ITIS Albert Einstein<br>
+di Picerno
+
+</h2>
+
+</div>
+
+<div class="about-card">
+
+<p>
+
+Frequento l’indirizzo Informatica e Telecomunicazioni
+presso l’ITIS “Albert Einstein” di Picerno.
+
+Durante il percorso scolastico ho studiato:
+HTML, CSS, JavaScript, C, C++, Java,
+Python, SQL, PHP e XML.
+
+La scuola mi ha permesso di sviluppare competenze
+nell’ambito della programmazione,
+delle reti informatiche,
+dei database e dello sviluppo web.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section" id="picerno">
+
+<div class="section-title">
+
+<p>
+PICERNO
+</p>
+
+<h2>
+
+Il mio paese
+
+</h2>
+
+</div>
+
+<div class="about-card">
+
+<p>
+
+Vivo a Picerno, un paese della Basilicata
+circondato dalla natura e caratterizzato
+da una forte identità storica e culturale.
+
+Crescere in un contesto tranquillo
+mi ha permesso di sviluppare passioni personali,
+interessi tecnologici e creatività.
+
+Picerno rappresenta una parte importante
+della mia identità personale.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="section" id="contact">
+
+<div class="section-title">
 
 <p>
 CONTATTI
 </p>
 
 <h2>
+
 Let's connect.
+
 </h2>
 
 </div>
